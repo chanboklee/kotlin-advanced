@@ -16,6 +16,11 @@ fun main() {
     // 실수로 GoldFish를 넣을 수 있고, 이로 인해 IllegalArgumentException 발생
     // val carp: Carp = cageV1.getFirst() as? Carp ?: throw IllegalArgumentException()
 
+    // Solution 3. Generic
+    val cageV2 = CageV2<Carp>()
+    cageV2.put(Carp("잉어"))
+    val carp: Carp = cageV2.getFirst()
+
 }
 
 class CageV1 {
@@ -31,5 +36,21 @@ class CageV1 {
 
     fun moveFrom(cageV1: CageV1){
         this.animals.addAll(cageV1.animals)
+    }
+}
+
+class CageV2<T> {
+    private val animals: MutableList<T> = mutableListOf()
+
+    fun getFirst(): T{
+        return animals.first()
+    }
+
+    fun put(animal: T){
+        this.animals.add(animal)
+    }
+
+    fun moveFrom(cageV2: CageV2<T>){
+        this.animals.addAll(cageV2.animals)
     }
 }
