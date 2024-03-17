@@ -50,6 +50,9 @@ class CageV4<T> {
     }
 
     fun moveFrom(cageV4: CageV4<out T>){
+        // out을 붙이게 되면, 데이터를 꺼낼 수만(생산) 있다.
+        // cageV4.getFirst()        // OK
+        // cageV4.put(Carp("잉어"))  // Error -> 타입 안정성이 깨진다.
         this.animals.addAll(cageV4.animals)
     }
 }
