@@ -23,10 +23,14 @@ class CageV5<T> {
         this.animals.add(animal)
     }
 
+    // 사용 지점 변성 (use-site variance)
+    // <? extends T>
     fun moveFrom(cageV5: CageV5<out T>){
         this.animals.addAll(cageV5.animals)
     }
 
+    // 사용 지점 변성 (use-site variance)
+    // <? super T>
     fun moveTo(cageV5: CageV5<in T>){
         // in을 붙이게 되면, 데이터를 받을 수만(소비) 있다.
         cageV5.animals.addAll(this.animals)

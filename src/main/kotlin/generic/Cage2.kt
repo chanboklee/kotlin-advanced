@@ -49,6 +49,8 @@ class CageV4<T> {
         this.animals.add(animal)
     }
 
+    // 사용 지점 변성 (use-site variance)
+    // <? extends T>
     fun moveFrom(cageV4: CageV4<out T>){
         // out을 붙이게 되면, 데이터를 꺼낼 수만(생산) 있다.
         // cageV4.getFirst()        // OK
