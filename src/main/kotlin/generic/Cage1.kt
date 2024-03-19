@@ -39,6 +39,8 @@ class CageV1 {
     }
 }
 
+// 제네릭 제약을 Non-Null 타입 한정에 사용할 수 있다.
+// T : Any
 class CageV2<T> {
     private val animals: MutableList<T> = mutableListOf()
 
